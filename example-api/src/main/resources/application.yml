@@ -1,0 +1,54 @@
+server:
+  port: 9527
+
+# 数据源配置
+spring:
+  datasource:
+    username: root
+    password: root
+    #mysql8版本以上的驱动包，需要指定以下时区
+    url: jdbc:mysql://127.0.0.1:3306/mxg_member?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    #mysql8版本以上驱动包指定新的驱动类
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #引入Druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    #   数据源其他配置, 在 DruidConfig配置类中手动绑定
+    initialSize: 8
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #   配置监控统计拦截的 filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,slf4j
+    maxPoolPreparedStatementPerConnectionSize: 25
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  #  彩色日志
+  output:
+    ansi:
+      enabled: ALWAYS
+
+
+mybatis-plus:
+  type-aliases-package: com.fz6m.entity # 扫描实体类包
+  # xxxMapper.xml 文件路径
+  mapper-locations: classpath:com/fz6m/mapper/xml/**.xml
+
+logging:
+  level:
+    com.fz6m.mapper: debug
+  path: ./logs
+  config: classpath:logback-spring.xml
+
+
+custom:
+  jwt:
+    config:
+      secretKey: secret-key # 密钥
+      expires:  604800 # 单位秒，7天
