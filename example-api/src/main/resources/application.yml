@@ -33,10 +33,10 @@ spring:
   output:
     ansi:
       enabled: ALWAYS
-#  jackson:
-#    #  格式化返回时间 yyyy-MM-dd HH:mm:ss
-#    date-format: yyyy-MM-dd HH:mm:ss
-#    time-zone: GMT+8
+  jackson:
+    #  格式化返回时间 yyyy-MM-dd HH:mm:ss
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
 #    #  返回时间戳
 #    serialization:
 #      write-dates-as-timestamps: true
