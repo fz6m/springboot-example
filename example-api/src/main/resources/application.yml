@@ -6,11 +6,11 @@ spring:
   datasource:
     username: root
     password: root
-    #mysql8版本以上的驱动包，需要指定以下时区
-    url: jdbc:mysql://127.0.0.1:3306/mxg_member?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
-    #mysql8版本以上驱动包指定新的驱动类
+    # mysql8版本以上的驱动包，需要指定以下时区
+    url: jdbc:mysql://127.0.0.1:3306/table?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    # mysql8版本以上驱动包指定新的驱动类
     driver-class-name: com.mysql.cj.jdbc.Driver
-    #引入Druid数据源
+    # 引入Druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
     #   数据源其他配置, 在 DruidConfig配置类中手动绑定
     initialSize: 8
@@ -33,7 +33,13 @@ spring:
   output:
     ansi:
       enabled: ALWAYS
-
+#  jackson:
+#    #  格式化返回时间 yyyy-MM-dd HH:mm:ss
+#    date-format: yyyy-MM-dd HH:mm:ss
+#    time-zone: GMT+8
+#    #  返回时间戳
+#    serialization:
+#      write-dates-as-timestamps: true
 
 mybatis-plus:
   type-aliases-package: com.fz6m.entity # 扫描实体类包
