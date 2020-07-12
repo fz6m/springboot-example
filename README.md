@@ -1,5 +1,5 @@
 # springboot-example
-Springboot + druid + mybatis-plus + redis + jwt 示例项目
+Springboot + druid + mybatis-plus + redis + jwt 后端 RESTful 示例项目
 
 ### 特性
 #### 布局 
